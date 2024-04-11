@@ -2,7 +2,7 @@ from random import randint
 
 from django import template
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 register = template.Library()
 
@@ -14,7 +14,7 @@ def recaptcha_key():
 def recaptcha_common_init(language, additional_variables):
     common_variables = {
         'language': language,
-        'recaptcha_host': getattr(settings, 'RECAPTCHA_PROXY_HOST', 'https://google.com')    
+        'recaptcha_host': getattr(settings, 'RECAPTCHA_PROXY_HOST', 'https://google.com')
     }
     common_variables.update(additional_variables)
     return common_variables
